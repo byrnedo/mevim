@@ -2,6 +2,7 @@ set nocompatible
 filetype off
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.fzf
 call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
@@ -14,6 +15,7 @@ Plugin 'gmarik/Vundle.vim'
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
+Plugin 'kien/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'ktvoelker/sbt-vim'
@@ -27,6 +29,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'fatih/vim-go'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-fugitive'
@@ -34,11 +37,12 @@ Plugin 'tpope/vim-surround'
 Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
-
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/bower_components/*,*/node_modules/*     " Linux/MacOSX
 
 " NERD Tree
 nmap <silent> <special> <F2> :NERDTreeTabsToggle<RETURN>
@@ -55,6 +59,8 @@ silent cexpr system("gometalinter ".expand("%"))
 endfunction
 au FileType go nmap <F5> :call GoMetaLinter()<CR>
 
+au FileType go nmap <Leader>i <Plug>(go-info)
+
 set shell=/bin/bash
 set background=dark
 set t_ti=""
@@ -63,11 +69,16 @@ set laststatus=2
 set mouse=n
 
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
 colorscheme PaperColor
-set guifont=SourceCodePro\ 12
+set anti enc=utf-8
+set guifont=Source\ Code\ Pro\ 12
+
+" Ctlp directory
+let g:ctrlp_working_path_mode = 0
 
 " Mulitple cursors keys
 let g:multi_cursor_next_key='<C-n>'
