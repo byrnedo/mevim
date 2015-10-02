@@ -31,13 +31,16 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'majutsushi/tagbar'
 Plugin 'bling/vim-airline'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'NLKNguyen/papercolor-theme' 
+Plugin 'derekwyatt/vim-scala'
+Plugin 'GEverding/vim-hocon'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,6 +68,7 @@ set shell=/bin/bash
 set background=dark
 set t_ti=""
 set t_Co=256
+colorscheme PaperColor
 set laststatus=2
 set mouse=n
 
@@ -73,7 +77,6 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
-colorscheme PaperColor
 set anti enc=utf-8
 set guifont=Source\ Code\ Pro\ 12
 
@@ -154,6 +157,9 @@ au InsertLeave * hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
 hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
 " Set the status line / bar
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P\ %{fugitive#statusline()}
+
+" Ctags
+let g:ctrlp_extensions = ['tag']
 
 " Turn off Ex Mode
 nnoremap Q <nop>
