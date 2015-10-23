@@ -40,6 +40,8 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'NLKNguyen/papercolor-theme' 
 Plugin 'derekwyatt/vim-scala'
 Plugin 'GEverding/vim-hocon'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'airblade/vim-gitgutter'
 
 
 " All of your Plugins must be added before the following line
@@ -163,4 +165,7 @@ let g:ctrlp_extensions = ['tag']
 
 " Turn off Ex Mode
 nnoremap Q <nop>
+
+" Man command
+runtime! ftplugin/man.vim
 
