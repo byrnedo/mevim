@@ -70,7 +70,6 @@ set shell=/bin/bash
 set background=dark
 set t_ti=""
 set t_Co=256
-"colorscheme PaperColor
 set laststatus=2
 set mouse=n
 
@@ -155,10 +154,6 @@ endfunction
 au InsertEnter * call InsertStatuslineColor(v:insertmode)
 au InsertLeave * hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
 
-" default the statusline to green when entering Vim
-hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
-" Set the status line / bar
-set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P\ %{fugitive#statusline()}
 
 " Ctags
 let g:ctrlp_extensions = ['tag']
@@ -177,6 +172,17 @@ let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
 
-autocmd VimEnter * PluginInstall
+function InstallVundlePlugins()
+    :PluginInstall
+    " default the statusline to green when entering Vim
+    hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
+    " Set the status line / bar
+    set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P\ %{fugitive#statusline()}
+    " Set colorscheme
+    colorscheme PaperColor
+    :q
+endfunction
+
+autocmd VimEnter * exec InstallVundlePlugins()
 
 
