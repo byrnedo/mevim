@@ -70,7 +70,7 @@ set shell=/bin/bash
 set background=dark
 set t_ti=""
 set t_Co=256
-colorscheme PaperColor
+"colorscheme PaperColor
 set laststatus=2
 set mouse=n
 
@@ -168,4 +168,15 @@ nnoremap Q <nop>
 
 " Man command
 runtime! ftplugin/man.vim
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:go_fmt_command = "goimports"
+
+autocmd VimEnter * PluginInstall
+
 
