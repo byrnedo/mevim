@@ -193,14 +193,14 @@ au FileType go nmap <Leader>e <Plug>(go-rename)
 
 
 function InstallVundlePlugins()
-    :PluginInstall
+"    :PluginInstall
     " default the statusline to green when entering Vim
     hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
     " Set the status line / bar
     set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P\ %{fugitive#statusline()}
     " Set colorscheme
     colorscheme PaperColor
-    :q
+"    :q
 endfunction
 
 autocmd VimEnter * exec InstallVundlePlugins()
