@@ -15,6 +15,9 @@ Plugin 'gmarik/Vundle.vim'
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 
+Plugin 'hashivim/vim-terraform'
+Plugin 'hashivim/vim-vagrant'
+Plugin 'hashivim/vim-packer'
 Plugin 'kien/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ekalinin/Dockerfile.vim'
